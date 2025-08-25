@@ -20,7 +20,7 @@ app.use(express.json({ limit: '20mb' }));
 app.use(express.urlencoded({ limit: '20mb', extended: true }));
 
 // MongoDB Connection
-const MONGODB_URI = process.env.VITE_MONGODB_URI || 'mongodb+srv://sunflowerpgs77:sunflower@pg.wctacc3.mongodb.net/sunflower_pg?retryWrites=true&w=majority';
+const MONGODB_URI = process.env.VITE_MONGODB_URI;
 
 mongoose.connect(MONGODB_URI, {
   maxPoolSize: 10,
