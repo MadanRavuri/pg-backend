@@ -8,8 +8,8 @@ import { dirname, join } from 'path';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-// Load environment variables
-dotenv.config({ path: join(__dirname, '..', '.env') });
+// Load environment variables from .env in the current directory
+dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -19,8 +19,8 @@ app.use(cors());
 app.use(express.json({ limit: '20mb' }));
 app.use(express.urlencoded({ limit: '20mb', extended: true }));
 
-// MongoDB Connection
-const MONGODB_URI = process.env.VITE_MONGODB_URI;
+
+const MONGODB_URI = process.env.MONGODB_URI;
 
 mongoose.connect(MONGODB_URI, {
   maxPoolSize: 10,
