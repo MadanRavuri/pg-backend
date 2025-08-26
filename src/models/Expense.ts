@@ -20,7 +20,7 @@ const ExpenseSchema: Schema = new Schema({
   date: { type: Date, required: true },
   paymentMethod: { type: String, required: true },
   vendor: { type: String, required: true },
-  status: { type: String, required: true },
+  status: { type: String, enum: ['paid', 'pending', 'approved'], required: true },
   wing: { type: String, required: true },
 });
 
